@@ -19,9 +19,22 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap",
   },
 ];
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Image Tools: Privacy-First Compression & Conversion" },
+    {
+      name: "description",
+      content: "A focused toolkit for reducing file size and switching formats locally in the browser. No uploads. No servers.",
+    },
+    { property: "og:title", content: "Image Tools" },
+    { property: "og:description", content: "Compress and convert images without sending a byte anywhere." },
+    { property: "og:type", content: "website" },
+  ];
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -62,11 +75,14 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+    <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-16">
+      <p className="text-sm font-semibold uppercase tracking-wider text-teal-600">
+        Application Error
+      </p>
+      <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900">{message}</h1>
+      <p className="mt-4 max-w-xl text-base text-slate-600">{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="mt-8 w-full overflow-x-auto rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-800 shadow-sm">
           <code>{stack}</code>
         </pre>
       )}

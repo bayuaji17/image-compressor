@@ -1,24 +1,37 @@
-# Welcome to React Router!
+# Image Compressor (Image Tools)
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+> A modern web application for compressing and converting images entirely within your browser.
+> Strict privacy — no files are sent to a server. Processing happens completely locally.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- **Image Compression**: Reduce file sizes smoothly without noticeable quality loss using Web Workers to preserve UI responsiveness.
+- **Format Conversion**: Transcode images directly into JPEG, PNG, or WebP formats via the native Canvas API.
+- **Privacy-First Processing**: 100% client-side operation, meaning your data never leaves your device.
+- **Batch Processing**: Handle multiple files concurrently.
+- **Bulk Export**: Download all compressed or converted files neatly packed in a `.zip` archive.
+
+## Tech Stack
+
+- **Framework**: [React Router v7](https://reactrouter.com/)
+- **Bundler**: [Vite](https://vitejs.dev/)
+- **Language**: TypeScript
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Key Libraries**:
+  - `browser-image-compression` (JPEG/PNG/WebP compression via Web Worker)
+  - `react-dropzone` (Drag-and-drop uploads)
+  - `jszip` & `file-saver` (Bulk archive downloading)
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js >= 18
+- npm >= 9
+
 ### Installation
 
-Install the dependencies:
+Install the project dependencies:
 
 ```bash
 npm install
@@ -36,52 +49,14 @@ Your application will be available at `http://localhost:5173`.
 
 ## Building for Production
 
-Create a production build:
+Create an optimized production build:
 
 ```bash
 npm run build
 ```
 
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
+Run the built application locally:
 
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+npm run start
 ```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
