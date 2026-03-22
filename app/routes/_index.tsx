@@ -1,6 +1,7 @@
 import type { Route } from "./+types/_index";
 import { Link } from "react-router";
 import { Navbar } from "../components/Navbar";
+import { useTranslation } from "react-i18next";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,6 +14,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Index() {
+  const { t } = useTranslation();
   return (
     <div className="app-shell">
       <Navbar />
@@ -20,28 +22,26 @@ export default function Index() {
         <section className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div className="space-y-8">
             <p className="inline-flex rounded-full bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700 ring-1 ring-inset ring-teal-600/20">
-              Privacy-first browser image lab
+              {t("home.badge")}
             </p>
             <h1 className="max-w-4xl text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl">
-              Compress and convert images without sending a byte anywhere.
+              {t("home.headline")}
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-slate-600">
-              A focused toolkit for reducing file size and switching formats
-              locally in the browser. No uploads. No waiting on servers. No
-              hidden retention.
+              {t("home.subheadline")}
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 to="/compress"
                 className="inline-flex items-center rounded-lg bg-teal-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-teal-600"
               >
-                Open Compressor
+                {t("home.btn_compress")}
               </Link>
               <Link
                 to="/convert"
                 className="inline-flex items-center rounded-lg border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:bg-slate-50"
               >
-                Open Converter
+                {t("home.btn_convert")}
               </Link>
             </div>
           </div>
@@ -49,22 +49,22 @@ export default function Index() {
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             <div className="grid gap-6 sm:grid-cols-2">
               <FeatureCard
-                title="Shrink heavy assets"
-                description="Tune size, width, and quality while keeping the UI responsive with web workers."
+                title={t("home.feature_1_title")}
+                description={t("home.feature_1_desc")}
               />
               <FeatureCard
-                title="Switch formats fast"
-                description="Transform PNG, JPEG, and WebP locally with canvas-based export controls."
+                title={t("home.feature_2_title")}
+                description={t("home.feature_2_desc")}
               />
             </div>
             <div className="mt-8 rounded-xl bg-slate-50 p-6 border border-slate-100">
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Principles
+                {t("home.principles_title")}
               </p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
-                <li className="flex gap-2"><span className="text-teal-500">✓</span> Local-only processing keeps source files on the device.</li>
-                <li className="flex gap-2"><span className="text-teal-500">✓</span> Batch-oriented flows support one-by-one or all-at-once work.</li>
-                <li className="flex gap-2"><span className="text-teal-500">✓</span> Shared components keep compress and convert behavior consistent.</li>
+                <li className="flex gap-2"><span className="text-teal-500">✓</span> {t("home.principle_1")}</li>
+                <li className="flex gap-2"><span className="text-teal-500">✓</span> {t("home.principle_2")}</li>
+                <li className="flex gap-2"><span className="text-teal-500">✓</span> {t("home.principle_3")}</li>
               </ul>
             </div>
           </div>

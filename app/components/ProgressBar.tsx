@@ -1,6 +1,8 @@
 import type { ImageFile } from "../types";
+import { useTranslation } from "react-i18next";
 
 export function ProgressBar(props: { images: ImageFile[] }) {
+  const { t } = useTranslation();
   const total = props.images.length;
   if (total === 0) {
     return null;
@@ -14,10 +16,10 @@ export function ProgressBar(props: { images: ImageFile[] }) {
       <div className="flex items-center justify-between gap-4">
         <div>
           <p className="text-sm font-semibold uppercase tracking-wider text-teal-600">
-            Batch Progress
+            {t("progress.title")}
           </p>
           <p className="mt-1 text-sm font-medium text-slate-600">
-            {done} of {total} images complete
+            {t("progress.complete", { done, total })}
           </p>
         </div>
         <p className="text-3xl font-bold tracking-tight text-slate-900">

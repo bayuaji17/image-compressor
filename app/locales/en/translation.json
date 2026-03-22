@@ -1,0 +1,77 @@
+{
+  "common": {
+    "app_name": "Image Tools",
+    "overview": "Overview",
+    "compress": "Compress",
+    "convert": "Convert",
+    "quality": "Quality",
+    "error": "Error",
+    "ready": "Ready",
+    "working": "Working",
+    "done": "Done",
+    "process": "Process",
+    "download": "Download",
+    "remove": "Remove",
+    "process_again": "Process Again",
+    "process_all": "Process All",
+    "convert_all": "Convert All",
+    "download_all_zip": "Download All (ZIP)",
+    "clear_all": "Clear All",
+    "application_error": "Application Error",
+    "oops": "Oops!",
+    "unexpected_error": "An unexpected error occurred.",
+    "page_not_found": "The requested page could not be found."
+  },
+  "home": {
+    "badge": "Privacy-first browser image lab",
+    "headline": "Compress and convert images without sending a byte anywhere.",
+    "subheadline": "A focused toolkit for reducing file size and switching formats locally in the browser. No uploads. No waiting on servers. No hidden retention.",
+    "btn_compress": "Open Compressor",
+    "btn_convert": "Open Converter",
+    "feature_1_title": "Shrink heavy assets",
+    "feature_1_desc": "Tune size, width, and quality while keeping the UI responsive with web workers.",
+    "feature_2_title": "Switch formats fast",
+    "feature_2_desc": "Transform PNG, JPEG, and WebP locally with canvas-based export controls.",
+    "principles_title": "Principles",
+    "principle_1": "Local-only processing keeps source files on the device.",
+    "principle_2": "Batch-oriented flows support one-by-one or all-at-once work.",
+    "principle_3": "Shared components keep compress and convert behavior consistent."
+  },
+  "compress": {
+    "page_title": "Compress Images | Image Tools",
+    "meta_desc": "Reduce image file sizes locally in your browser.",
+    "eyebrow": "Compressor",
+    "title": "Make oversized images practical.",
+    "description": "Reduce heavy assets locally with a controlled, sequential workflow designed to stay responsive even when you process batches.",
+    "empty_state": "No images yet. Add files above to start compressing.",
+    "settings_title": "Compression Settings",
+    "settings_desc": "Tune size, quality, and dimensions.",
+    "max_size": "Max output size"
+  },
+  "convert": {
+    "page_title": "Convert Images | Image Tools",
+    "meta_desc": "Convert image formats locally in your browser.",
+    "eyebrow": "Converter",
+    "title": "Switch formats without losing control.",
+    "description": "Convert image formats locally and keep transparent control over output type, quality, and download handling.",
+    "empty_state": "No images yet. Add files above to start converting.",
+    "settings_title": "Output Format",
+    "settings_desc": "Choose the export format and quality.",
+    "png_lossless": "PNG export is lossless. Quality control is hidden because browsers do not use the quality parameter for PNG encoding."
+  },
+  "dropzone": {
+    "eyebrow": "Upload Images",
+    "title": "Drop files here or browse from your device.",
+    "description": "Supports JPEG, PNG, and WebP. Files stay local to the browser, and you can process up to 20 images in one session.",
+    "btn_choose": "Choose Files",
+    "ready_to_add": "{{count}} file(s) ready to add",
+    "drag_drop": "Drag and drop to begin"
+  },
+  "progress": {
+    "title": "Batch Progress",
+    "complete": "{{done}} of {{total}} images complete"
+  },
+  "image_card": {
+    "processing": "Processing {{progress}}%"
+  }
+}

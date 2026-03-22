@@ -6,6 +6,7 @@ import { Navbar } from "../components/Navbar";
 import { ProgressBar } from "../components/ProgressBar";
 import { useImageCompressor } from "../hooks/useImageCompressor";
 import { downloadAllAsZip, downloadFile } from "../utils/downloadUtils";
+import { useTranslation } from "react-i18next";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,6 +19,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function CompressRoute() {
+  const { t } = useTranslation();
   const {
     images,
     options,
@@ -35,9 +37,9 @@ export default function CompressRoute() {
       <Navbar />
       <main className="mx-auto flex max-w-7xl flex-col gap-10 px-6 pb-16 pt-8 sm:px-10 lg:px-12">
         <PageIntro
-          eyebrow="Compressor"
-          title="Make oversized images practical."
-          description="Reduce heavy assets locally with a controlled, sequential workflow designed to stay responsive even when you process batches."
+          eyebrow={t("compress.eyebrow")}
+          title={t("compress.title")}
+          description={t("compress.description")}
         />
         <DropZone onFiles={addFiles} />
         <CompressSettings options={options} onChange={setOptions} />
@@ -54,8 +56,8 @@ export default function CompressRoute() {
           onDownload={downloadFile}
           onProcess={compressOne}
           onRemove={removeImage}
-          processLabel="Compress"
-          emptyLabel="No images yet. Add files above to start compressing."
+          processLabel={t("common.compress")}
+          emptyLabel={t("compress.empty_state")}
         />
       </main>
     </div>
@@ -89,6 +91,7 @@ function Toolbar(props: {
   onDownloadAll: () => void;
   onClearAll: () => void;
 }) {
+  const { t } = useTranslation();
   return (
     <section className="flex flex-wrap items-center gap-3">
       <button
@@ -97,7 +100,7 @@ function Toolbar(props: {
         disabled={!props.hasImages}
         className="rounded-lg bg-teal-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-teal-600 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none"
       >
-        Process All
+        {t("common.process_all")}
       </button>
       <button
         type="button"
@@ -105,7 +108,7 @@ function Toolbar(props: {
         disabled={!props.hasCompleted}
         className="rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-800 shadow-sm transition-colors hover:bg-slate-50 disabled:cursor-not-allowed disabled:border-slate-100 disabled:text-slate-400 disabled:shadow-none"
       >
-        Download All (ZIP)
+        {t("common.download_all_zip")}
       </button>
       <button
         type="button"
@@ -113,7 +116,7 @@ function Toolbar(props: {
         disabled={!props.hasImages}
         className="rounded-lg px-5 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 disabled:cursor-not-allowed disabled:text-slate-400 disabled:hover:bg-transparent"
       >
-        Clear All
+        {t("common.clear_all")}
       </button>
     </section>
   );

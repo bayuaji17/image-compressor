@@ -1,6 +1,8 @@
 import { useDropFiles } from "../hooks/useDropFiles";
+import { useTranslation } from "react-i18next";
 
 export function DropZone(props: { onFiles: (files: File[]) => void }) {
+  const { t } = useTranslation();
   const {
     getRootProps,
     getInputProps,
@@ -23,14 +25,13 @@ export function DropZone(props: { onFiles: (files: File[]) => void }) {
     >
       <input {...getInputProps()} />
       <p className="text-sm font-semibold uppercase tracking-wider text-teal-600">
-        Upload Images
+        {t("dropzone.eyebrow")}
       </p>
       <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">
-        Drop files here or browse from your device.
+        {t("dropzone.title")}
       </h2>
       <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600">
-        Supports JPEG, PNG, and WebP. Files stay local to the browser, and you
-        can process up to 20 images in one session.
+        {t("dropzone.description")}
       </p>
       <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
         <button
@@ -41,12 +42,12 @@ export function DropZone(props: { onFiles: (files: File[]) => void }) {
           }}
           className="rounded-lg bg-teal-500 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-teal-600"
         >
-          Choose Files
+          {t("dropzone.btn_choose")}
         </button>
         <span className="text-sm font-medium text-slate-500">
           {acceptedFiles.length > 0
-            ? `${acceptedFiles.length} file(s) ready to add`
-            : "Drag and drop to begin"}
+            ? t("dropzone.ready_to_add", { count: acceptedFiles.length })
+            : t("dropzone.drag_drop")}
         </span>
       </div>
     </section>

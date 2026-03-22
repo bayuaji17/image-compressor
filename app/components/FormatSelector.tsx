@@ -1,19 +1,21 @@
 import { OUTPUT_FORMATS } from "../constants/formats";
 import type { ConvertOptions } from "../types";
+import { useTranslation } from "react-i18next";
 
 export function FormatSelector(props: {
   options: ConvertOptions;
   onChange: (options: ConvertOptions) => void;
 }) {
   const { options, onChange } = props;
+  const { t } = useTranslation();
 
   return (
     <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
       <p className="text-sm font-semibold uppercase tracking-wider text-teal-600">
-        Output Format
+        {t("convert.settings_title")}
       </p>
       <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
-        Choose the export format and quality.
+        {t("convert.settings_desc")}
       </h2>
 
       <div className="mt-6 flex flex-wrap gap-3">
@@ -41,13 +43,12 @@ export function FormatSelector(props: {
 
       {options.targetFormat === "image/png" ? (
         <p className="mt-6 rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-7 text-slate-600">
-          PNG export is lossless. Quality control is hidden because browsers do
-          not use the quality parameter for PNG encoding.
+          {t("convert.png_lossless")}
         </p>
       ) : (
         <label className="mt-6 block space-y-3">
           <span className="text-sm font-semibold text-slate-700">
-            Quality: {Math.round(options.quality * 100)}%
+            {t("common.quality")}: {Math.round(options.quality * 100)}%
           </span>
           <input
             type="range"

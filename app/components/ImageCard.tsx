@@ -1,5 +1,6 @@
 import type { ImageFile } from "../types";
 import { calcReduction, formatSize, mimeToExt } from "../utils/imageUtils";
+import { useTranslation } from "react-i18next";
 
 export function ImageCard(props: {
   image: ImageFile;
@@ -8,6 +9,7 @@ export function ImageCard(props: {
   onProcess: (id: string) => void;
   onDownload?: (image: ImageFile) => void;
 }) {
+  const { t } = useTranslation();
   const { image } = props;
   const resultPreview = image.compressedPreview ?? image.preview;
   const resultSize = image.compressedSize ?? image.originalSize;
@@ -28,7 +30,7 @@ export function ImageCard(props: {
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/45 text-white">
             <div className="h-10 w-10 animate-spin rounded-full border-4 border-white/30 border-t-white" />
             <p className="text-sm font-semibold">
-              Processing {Math.round(image.progress ?? 0)}%
+              {t("image_card.processing", { progress: Math.round(image.progress ?? 0) })}
             </p>
           </div>
         ) : null}
@@ -64,7 +66,7 @@ export function ImageCard(props: {
             disabled={image.status === "processing" || Boolean(image.error)}
             className="rounded-lg bg-teal-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-teal-600 disabled:cursor-not-allowed disabled:bg-slate-300"
           >
-            {image.status === "done" ? "Process Again" : props.processLabel}
+            {image.status === "done" ? t("common.process_again") : props.processLabel}
           </button>
           {image.status === "done" && props.onDownload ? (
             <button
@@ -72,7 +74,7 @@ export function ImageCard(props: {
               onClick={() => props.onDownload?.(image)}
               className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
             >
-              Download
+              {t("common.download")}
             </button>
           ) : null}
           <button
@@ -80,7 +82,7 @@ export function ImageCard(props: {
             onClick={() => props.onRemove(image.id)}
             className="ml-auto rounded-lg px-3 py-2 text-sm font-medium text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900"
           >
-            Remove
+            {t("common.remove")}
           </button>
         </div>
       </div>
@@ -89,10 +91,12 @@ export function ImageCard(props: {
 }
 
 function StatusBadge(props: { image: ImageFile; reduction: number | null }) {
+  const { t } = useTranslation();
+
   if (props.image.status === "done") {
     return (
       <span className="shrink-0 rounded-md bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
-        {props.reduction != null ? `-${props.reduction}%` : "Done"}
+        {props.reduction != null ? `-${props.reduction}%` : t("common.done")}
       </span>
     );
   }
@@ -100,7 +104,7 @@ function StatusBadge(props: { image: ImageFile; reduction: number | null }) {
   if (props.image.status === "error") {
     return (
       <span className="shrink-0 rounded-md bg-red-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-red-700 ring-1 ring-inset ring-red-600/10">
-        Error
+        {t("common.error")}
       </span>
     );
   }
@@ -108,14 +112,14 @@ function StatusBadge(props: { image: ImageFile; reduction: number | null }) {
   if (props.image.status === "processing") {
     return (
       <span className="shrink-0 rounded-md bg-teal-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-teal-700 ring-1 ring-inset ring-teal-600/20">
-        Working
+        {t("common.working")}
       </span>
     );
   }
 
   return (
     <span className="shrink-0 rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-600 ring-1 ring-inset ring-slate-500/10">
-      Ready
+      {t("common.ready")}
     </span>
   );
 }

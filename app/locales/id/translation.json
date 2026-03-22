@@ -1,0 +1,77 @@
+{
+  "common": {
+    "app_name": "Image Tools",
+    "overview": "Ringkasan",
+    "compress": "Kompres",
+    "convert": "Konversi",
+    "quality": "Kualitas",
+    "error": "Galat",
+    "ready": "Siap",
+    "working": "Memproses",
+    "done": "Selesai",
+    "process": "Proses",
+    "download": "Unduh",
+    "remove": "Hapus",
+    "process_again": "Proses Lagi",
+    "process_all": "Proses Semua",
+    "convert_all": "Konversi Semua",
+    "download_all_zip": "Unduh Semua (ZIP)",
+    "clear_all": "Hapus Semua",
+    "application_error": "Galat Aplikasi",
+    "oops": "Ups!",
+    "unexpected_error": "Terjadi galat yang tak terduga.",
+    "page_not_found": "Halaman yang diminta tak dapat ditemukan."
+  },
+  "home": {
+    "badge": "Lab gambar browser dengan privasi utama",
+    "headline": "Kompres dan konversi gambar tanpa mengirimkan satu byte pun.",
+    "subheadline": "Toolkit terfokus untuk mengurangi ukuran file dan mengubah format lokal di browser. Tanpa unggahan. Tanpa menunggu server.",
+    "btn_compress": "Buka Kompresor",
+    "btn_convert": "Buka Konverter",
+    "feature_1_title": "Kecilkan aset berat",
+    "feature_1_desc": "Sesuaikan ukuran, lebar, dan kualitas sambil menjaga UI tetap responsif dengan web worker.",
+    "feature_2_title": "Ubah format dengan cepat",
+    "feature_2_desc": "Ubah PNG, JPEG, dan WebP secara lokal melalui kontrol ekspor kanvas.",
+    "principles_title": "Prinsip",
+    "principle_1": "Pemrosesan lokal saja menjaga file tetap di dalam perangkat.",
+    "principle_2": "Alur batch mendukung per-item atau semuanya sekaligus.",
+    "principle_3": "Berbagi komponen yang konsisten di kompresi atau konversi."
+  },
+  "compress": {
+    "page_title": "Kompres Gambar | Image Tools",
+    "meta_desc": "Kurangi ukuran file gambar secara lokal di browser Anda.",
+    "eyebrow": "Kompresor",
+    "title": "Buat gambar berukuran besar lebih praktis.",
+    "description": "Kurangi ukuran gambar berat lokal dengan beban berurutan untuk menjaga UI Anda tetap interaktif meski batch bekerja.",
+    "empty_state": "Belum ada gambar. Tambahkan file untuk mulai mengompresi.",
+    "settings_title": "Pengaturan Kompresi",
+    "settings_desc": "Sesuaikan ukuran, kualitas, dan dimensi.",
+    "max_size": "Ukuran output maksimal"
+  },
+  "convert": {
+    "page_title": "Konversi Gambar | Image Tools",
+    "meta_desc": "Konversi format gambar secara lokal di browser Anda.",
+    "eyebrow": "Konverter",
+    "title": "Ubah format tanpa kehilangan kendali.",
+    "description": "Atur konversi untuk gambar Anda secara lokal, transparansi, opsi output, beserta dengan metode unduhan.",
+    "empty_state": "Belum ada gambar. Tambahkan file untuk mulai penukaran format.",
+    "settings_title": "Format Output",
+    "settings_desc": "Pilih format dan kualitas hasil ekspor.",
+    "png_lossless": "Ekspor bersifat lossless untuk PNG. Kontrol kualitas tidak diberlakukan oleh browser saat PNG mengkonversi."
+  },
+  "dropzone": {
+    "eyebrow": "Unggah Gambar",
+    "title": "Jatuhkan file di sini atau cari file dari perangkat Anda.",
+    "description": "Mendukung JPEG, PNG, dan WebP. Pekerjaan murni pada mesin lokal, hingga 20 antrian dalam satu waktu.",
+    "btn_choose": "Pilih File",
+    "ready_to_add": "{{count}} file sedang disiapkan",
+    "drag_drop": "Seret dan lepas file untuk memulai"
+  },
+  "progress": {
+    "title": "Proses Antrean",
+    "complete": "{{done}} dari {{total}} berhasil"
+  },
+  "image_card": {
+    "processing": "Memutar {{progress}}%"
+  }
+}

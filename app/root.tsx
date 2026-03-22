@@ -9,6 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import "./i18n/config";
+import { useTranslation } from "react-i18next";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -59,15 +61,16 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
+  const { t } = useTranslation();
+  let message = t("common.oops");
+  let details = t("common.unexpected_error");
   let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
+    message = error.status === 404 ? "404" : t("common.error");
     details =
       error.status === 404
-        ? "The requested page could not be found."
+        ? t("common.page_not_found")
         : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
@@ -77,7 +80,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   return (
     <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-16">
       <p className="text-sm font-semibold uppercase tracking-wider text-teal-600">
-        Application Error
+        {t("common.application_error")}
       </p>
       <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900">{message}</h1>
       <p className="mt-4 max-w-xl text-base text-slate-600">{details}</p>

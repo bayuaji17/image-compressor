@@ -24,8 +24,7 @@ export const DEFAULT_OUTPUT_FORMAT: SupportedFormat = "image/webp";
 
 export const DEFAULT_COMPRESS_OPTIONS: CompressOptions = {
   maxSizeMB: 1,
-  maxWidthOrHeight: 1920,
   quality: 0.8,
   useWebWorker: true,
-  preserveExif: false,
+  preserveExif: true,
 };
